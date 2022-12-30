@@ -1,25 +1,28 @@
-#include<stdio.h>
+#include <stdio.h>
 /**
-* main - Entry point
+* main - entry point
 *
-* Return: Always 0 (Success)
+* Return: alway returns 0
+*
 */
 int main(void)
 {
-int i, j, cont;
-cont = 0;
-for (i = 48; i != 58; i++)
+int i;
+int j;
+for (i = 10; i <= 19; i++)
 {
-for (j = 48; j != 58; j++)
+for (j = 10; j <= 19; j++)
 {
-putchar(i);
-putchar(j);
-if (cont != 99)
+if ((j % 10) > (i % 10))
 {
-putchar(44);
-putchar(32);
+putchar((i % 10) + '0');
+putchar((j % 10) + '0');
+if (i != 18 || j != 19)
+{
+putchar(',');
+putchar(' ');
 }
-cont++;
+}
 }
 }
 putchar('\n');
