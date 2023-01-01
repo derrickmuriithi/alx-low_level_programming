@@ -1,36 +1,43 @@
 #include "main.h"
 /**
-* _atoi - Convert a string to integer.
-* @s: char array string
-* Description: Number in the string can be preceded by an infinite
-* number of characters.
-* You need to take into account all -/+ signs before the number.
-* If there are no numbers in the string, return 0.
-* No need to check for overflow.
-* Not allowed to hard-code special values.
-* Return: first integer found in string
+* print_number - prints number
+*
+* @n: integer to print to character
 */
-int _atoi(char *s)
+void print_number(int n)
 {
 int i;
-int h, p;
-h = 0;
-p = -1;
-for (i = 0; s[i] != '\0'; i++)
+int d = 1;
+unsigned int x = n;
+unsigned int y = n;
+int c = 0;
+if (n == 0)
 {
-if (s[i] == '-')
-p *= -1;
-if (s[i] > 47 && s[i] < 58)
+_putchar('0');
+}
+if (n < 0)
 {
-if (h < 0)
-h = (h * 10) - (s[i] - '0');
-else
-h = (s[i] - '0') * -1;
-if (s[i + 1] < 48 || s[i + 1] > 57)
-break;
+_putchar('-');
+n = n + 1;
+n = -n;
+y = n;
+x = n;
+x += 1;
+y += 1;
 }
+while (x != 0)
+{
+x = x / 10;
+c++;
 }
-if (p < 0)
-h *= -1;
-return (h);
+for (i = 1; i < c; i++)
+{
+d *= 10;
+}
+for (i = 0; i < c; i++)
+{
+_putchar(y / d + '0');
+y = y % d;
+d = d / 10;
+}
 }
